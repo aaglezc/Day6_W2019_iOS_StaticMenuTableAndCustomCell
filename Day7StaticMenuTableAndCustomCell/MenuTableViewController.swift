@@ -12,9 +12,9 @@ class MenuTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 0
@@ -22,6 +22,11 @@ class MenuTableViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 print("Go to Home")
+               
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let studentDetailsVC = sb.instantiateViewController(withIdentifier: "studentDetailsVC") as! StudentInforamtionViewController
+                
+            self.navigationController?.pushViewController(studentDetailsVC, animated: true)
             case 1:
                 print("Go to Products Page")
             case 2:
@@ -44,7 +49,5 @@ class MenuTableViewController: UITableViewController {
             }
         }
     }
-
-
 }
 
